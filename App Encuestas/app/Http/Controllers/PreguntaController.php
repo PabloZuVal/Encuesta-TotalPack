@@ -13,7 +13,9 @@ class PreguntaController extends Controller
     {
         $preguntas = Pregunta::all();
         $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first();
-        return view('pregunta.gestor',compact('encuestaa','preguntas')); 
+        $preguntas_encuesta = DB::table('preguntas')->where('id_encuesta',$id)->first();
+        dd($preguntas);
+        return view('pregunta.gestor',compact('encuestaa','preguntas_encuesta')); 
     }
     /**
      * Display a listing of the resource.

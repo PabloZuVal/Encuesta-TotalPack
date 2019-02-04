@@ -18,8 +18,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($preguntas as $pregunta)
-                        <td>{{$pregunta->pregunta}}</td>
+                    
+                    @foreach ($preguntas_encuesta as $pregunta_encuesta)
+                        <td>{{$pregunta_encuesta->pregunta}}</td>
                         <td>boton respuesta</td>
                         <td><a class="btn btn-primary btn-sm" href="{{-- route('encuesta.edit',$encuesta->id_encuesta) --}}" role="button">Editar</a></td>
                         <td>
