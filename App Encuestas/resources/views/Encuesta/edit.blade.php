@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 align="center" >Editar encuesta de {{ $encuestaa->nombre_cli}}</h1>
+    <h1 align="center" >Editar encuesta de {{ $encuestaa->nombre_cli}}</h1>
 
-<div class="container">
+    <div class="container">
         
         <form method="POST" action ={{route('encuesta.update',$encuestaa->id_encuesta)}} class="form-group" >
             @csrf
@@ -11,7 +11,7 @@
             
             <div class="form-group">
                 <label for="formGroupExampleInput">Cliente</label>
-            <input type="text" class="form-control" name="cliente" id="formGroupExampleInput" value="{{$encuestaa->nombre_cli}}">
+                <input type="text" class="form-control" name="cliente" id="formGroupExampleInput" value="{{$encuestaa->nombre_cli}}">
             </div>
             {{--FECHA EMISION CREATED AT--}} 
             <div class="form-group">

@@ -16,8 +16,8 @@ class CreatePreguntasTable extends Migration
         Schema::create('preguntas', function (Blueprint $table) {
             $table->increments('id_pregunta');
             $table->string('pregunta');
-            $table->integer('id_encuesta')->unsigned(); 
-            $table->foreign('id_encuesta')->references('id_encuesta')->on('encuestas'); 
+            $table->integer('id_encuesta_foranea')->unsigned(); 
+            $table->foreign('id_encuesta_foranea')->references('id_encuesta')->on('encuestas'); 
             $table->timestamps();
         });
     }

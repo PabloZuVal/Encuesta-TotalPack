@@ -8,7 +8,7 @@ class Pregunta extends Model
 {
     protected $table = 'preguntas';
     protected $fillable = [
-        'id_pregunta','pregunta','id_encuesta',
+        'id_pregunta','pregunta','id_encuesta_foranea',
     ];
     public function encuesta()
     {

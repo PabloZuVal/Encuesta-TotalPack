@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <h1 align="center">Gestor - Preguntas de {{$encuestaa->nombre_cli}}</h1>
+    <h1 align="center">Gestor - Preguntas, {{$encuestaa->nombre_cli}}</h1>
 
-    <a class="btn btn-success btn-sm" href="{{-- route('pregunta.create') --}}" role="button">Crear Pregunta</a>
+    <a class="btn btn-success btn-sm" href="{{ route('pregunta.create',$encuestaa->id_encuesta) }}" role="button">Crear Pregunta</a>
     
     <div class="container">
         <div class="tab-content">
@@ -18,11 +18,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
                     @foreach ($preguntas_encuesta as $pregunta_encuesta)
+                    <tr>
                         <td>{{$pregunta_encuesta->pregunta}}</td>
-                        <td>boton respuesta</td>
-                        <td><a class="btn btn-primary btn-sm" href="{{-- route('encuesta.edit',$encuesta->id_encuesta) --}}" role="button">Editar</a></td>
+                        <td>boton respuestaa</td>
+                        <td><a class="btn btn-primary btn-sm" href="{{ route('pregunta.edit',$encuestaa->id_encuesta) }}" role="button">Editar</a></td>
                         <td>
                             <form method="POST" action="{{-- route('encuesta.destroy', $encuesta->id_encuesta) --}}">
                                 {!! csrf_field() !!}
@@ -30,6 +30,7 @@
                                 <button class="btn btn-danger btn-sm" type="submit">Eliminar</button><!-- Eliminar -->
                             </form>
                         </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

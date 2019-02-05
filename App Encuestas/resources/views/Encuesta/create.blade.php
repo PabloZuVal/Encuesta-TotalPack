@@ -9,12 +9,12 @@
             @csrf
             <div class="form-group">
                 <label for="formGroupExampleInput">Cliente</label>
-                <input type="text" class="form-control" name="cliente" id="formGroupExampleInput" placeholder="Ingrese Cliente">
+                <input type="text" class="form-control" name="cliente" id="formGroupExampleInput" placeholder="Ingrese nombre de cliente">
             </div>
             {{--FECHA EMISION CREATED AT--}} 
             <div class="form-group">
                 <label for="formGroupExampleInput2">Encargado</label>
-                <input type="text" class="form-control" name="encargado" id="formGroupExampleInput3" placeholder="Ingrese encargado">
+                <input type="text" class="form-control" name="encargado" id="formGroupExampleInput3" placeholder="Ingrese nombre de encargado">
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Tecnico en terreno</label>

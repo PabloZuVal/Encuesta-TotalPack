@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Carbon\Carbon as Carbon;
 use App\Pregunta as Pregunta;
 use App\Encuesta as Encuesta;
 use Illuminate\Http\Request;
 
 class PreguntaController extends Controller
 {
-    public function gestor($id)
+    public function gestor($id) //Id de la encuesta seleccionada
     {
-        $preguntas = Pregunta::all();
-        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first();
-        $preguntas_encuesta = DB::table('preguntas')->where('id_encuesta',$id)->first();
-        dd($preguntas);
+        $preguntas_encuesta = Pregunta::where('id_encuesta_foranea','=',$id)->get(); //Todo OK
+        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); // Todo OK
         return view('pregunta.gestor',compact('encuestaa','preguntas_encuesta')); 
     }
     /**
@@ -32,9 +31,10 @@ class PreguntaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); //agregado
+        return view('pregunta.create',compact('encuestaa'));
     }
 
     /**
@@ -43,9 +43,16 @@ class PreguntaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        DB::table('preguntas')->insert([
+            "pregunta" => $request->input('pregunta_new'),
+            "id_encuesta_foranea" => $id,
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now()
+        ]);
+        
+        return redirect()->route('pregunta.gestor',compact('id'));
     }
 
     /**
@@ -65,9 +72,10 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pregunta $pregunta)
+    public function edit($id)
     {
-        //
+        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first();
+        return view('pregunta.edit',compact('encuestaa'));
     }
 
     /**
@@ -77,9 +85,14 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pregunta $pregunta)
+    public function update(Request $request, $id)
     {
-        //
+        DB::table('preguntas')->where('id_encuesta_foranea',$id)->update([
+            "pregunta" => $request->input('pregunta_edit'),
+            "updated_at" => Carbon::now()
+            
+        ]);
+        return redirect()->route('pregunta.gestor',compact('id'));
     }
 
     /**
