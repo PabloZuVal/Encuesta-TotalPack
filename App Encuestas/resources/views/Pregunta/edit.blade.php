@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    {{--------------------------------------------------- Vista de prueba - editar pregunta -----------------------------------------------}}
-    <h1 align="center">Editar Pregunta para {{$encuestaa->nombre_cli}}</h1>
+    {{--------------------------------------------------- editar pregunta -----------------------------------------------}}
+    <h1 align="center">Editar Pregunta</h1>
     
     <div class="container">
         
-        <form method="POST" action ={{route('pregunta.update',$encuestaa->id_encuesta)}} class="form-group" > {{--Por trabajar--}}
+        <form method="POST" action ={{route('pregunta.update',$pregunta->id_pregunta)}} class="form-group" > {{--Por trabajar--}}
             @csrf
             {!! method_field('PUT') !!}
 
@@ -20,7 +20,7 @@
 
     </div>
 
-    <a class="btn btn-secondary btn-sm" href="{{ route('pregunta.gestor',$encuestaa->id_encuesta) }}" role="button">Atras</a>
+    <a class="btn btn-secondary btn-sm" href="{{ route('pregunta.index',$pregunta->id_encuesta_foranea) }}" role="button">Atras</a> 
     
     <div class="card-body">
         @if (session('status'))

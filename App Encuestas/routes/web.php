@@ -24,10 +24,8 @@ Route::delete('/encuesta/{id}', ['as' => 'encuesta.destroy', 'uses' => 'Encuesta
 
 //-------------------------------------------- CRUD PREGUNTAS -------------------------------------------------------------
 
-Route::get('/preguntas/gestor/{id}',['as' => 'pregunta.gestor','uses' => 'PreguntaController@gestor']); //VISTA CRUD PRINCIPAL DE PREGUNTAS (SE ENVIA EL ID DE LA ENCUESTA)
-
+Route::get('/pregunta/mostrar/{id}',['as' => 'pregunta.index','uses' => 'PreguntaController@index']); //MOSTRAR CRUD PREGUNTAS (Se envia el id de encuesta)
 Route::get('/pregunta/crear/{id}', ['as' => 'pregunta.create', 'uses' => 'PreguntaController@create']); //CREAR PREGUNTA (FORMULARIO DE CREACION)
 Route::post('/pregunta/{id}', ['as' => 'pregunta.store', 'uses' => 'PreguntaController@store']); //GUARDAR Y REDIRECCIONAR
-Route::get('/pregunta/{id}/editar', ['as' => 'pregunta.edit', 'uses' => 'PreguntaController@edit']); //alpha
-Route::put('/pregunta/{id}', ['as' => 'pregunta.update', 'uses' => 'PreguntaController@update']); //alpha
-
+Route::get('/pregunta/{id}/editar', ['as' => 'pregunta.edit', 'uses' => 'PreguntaController@edit']); //alpha id_pregunta
+Route::put('/pregunta/{id}', ['as' => 'pregunta.update', 'uses' => 'PreguntaController@update']); //alpha id_pregunta

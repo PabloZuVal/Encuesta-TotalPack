@@ -10,6 +10,7 @@ class Pregunta extends Model
     protected $fillable = [
         'id_pregunta','pregunta','id_encuesta_foranea',
     ];
+    
     public function encuesta()
     {
         return $this->belongsTo(Encuesta::class);

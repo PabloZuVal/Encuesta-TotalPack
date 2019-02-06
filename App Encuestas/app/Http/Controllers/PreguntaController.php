@@ -4,26 +4,25 @@ namespace App\Http\Controllers;
 
 use DB;
 use Carbon\Carbon as Carbon;
-use App\Pregunta as Pregunta;
+use App\Pregunta as c;
 use App\Encuesta as Encuesta;
+use App\Pregunta as Pregunta;
 use Illuminate\Http\Request;
 
 class PreguntaController extends Controller
 {
-    public function gestor($id) //Id de la encuesta seleccionada
-    {
-        $preguntas_encuesta = Pregunta::where('id_encuesta_foranea','=',$id)->get(); //Todo OK
-        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); // Todo OK
-        return view('pregunta.gestor',compact('encuestaa','preguntas_encuesta')); 
-    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    
+    public function index($id) //Muestra preguntas de todas las encuestas
     {
-        //
+        $preguntas_encuesta = Pregunta::where('id_encuesta_foranea','=',$id)->get(); //Todo OK
+        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); // Todo OK
+        return view('pregunta.index',compact('preguntas_encuesta','encuestaa')); //OK
     }
 
     /**
@@ -34,7 +33,7 @@ class PreguntaController extends Controller
     public function create($id)
     {
         $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); //agregado
-        return view('pregunta.create',compact('encuestaa'));
+        return view('pregunta.create',compact('encuestaa')); // enviar al index de preguntas
     }
 
     /**
@@ -52,7 +51,7 @@ class PreguntaController extends Controller
             "updated_at" => Carbon::now()
         ]);
         
-        return redirect()->route('pregunta.gestor',compact('id'));
+        return redirect()->route('pregunta.index',compact('id')); //enviar al index de preguntas
     }
 
     /**
@@ -74,8 +73,9 @@ class PreguntaController extends Controller
      */
     public function edit($id)
     {
-        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first();
-        return view('pregunta.edit',compact('encuestaa'));
+        //$encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first();
+        $pregunta = DB::table('preguntas')->where('id_pregunta',$id)->first();
+        return view('pregunta.edit',compact('pregunta')); //enviar al index de preguntas
     }
 
     /**
@@ -85,14 +85,16 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) //id de la pregunta
     {
-        DB::table('preguntas')->where('id_encuesta_foranea',$id)->update([
+        DB::table('preguntas')->where('id_pregunta',$id)->update([
             "pregunta" => $request->input('pregunta_edit'),
             "updated_at" => Carbon::now()
-            
         ]);
-        return redirect()->route('pregunta.gestor',compact('id'));
+        $pregunta = DB::table('preguntas')->where('id_pregunta',$id)->first();
+        $encuestaa = DB::table('encuestas')->where('id_encuesta',$pregunta->id_encuesta_foranea)->first();
+        $id2 = $encuestaa->id_encuesta;
+        return redirect()->route('pregunta.index',compact('id2')); //el id lo tengo que enviar al index
     }
 
     /**

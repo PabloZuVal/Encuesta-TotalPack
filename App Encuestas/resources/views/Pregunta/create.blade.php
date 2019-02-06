@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     
-    <h1 align="center">Crear Pregunta para {{$encuestaa->nombre_cli}}</h1>
+    <h1 align="center">Crear Pregunta</h1>
     
     <div class="container">
         
