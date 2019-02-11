@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/ajax.js') }}" defer></script> <!-- Agregado -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +19,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!----------------------------------------------------------- link data tables -------------------------------------------------------------------------->
+    
+    {{--<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
+   
 </head>
 <body>
     <div id="app">
@@ -92,18 +97,20 @@
         <main class="py-4">
         
             <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">Sistema de encuestas</div>
-                                    @yield('content')
-                            </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">Sistema de encuestas</div>
+                                @yield('content')
                         </div>
                     </div>
                 </div>
-            </div>
-        
+             </div>
         </main>
     </div>
+   
+    {{--<script src= "cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script> --}} 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   
 </body>
 </html>

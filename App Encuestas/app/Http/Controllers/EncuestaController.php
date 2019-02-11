@@ -16,10 +16,13 @@ class EncuestaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    
+    public function index() //ver aca el metodo post
     {
         $encuestas = Encuesta::all();
-        return view('Encuesta.index',compact('encuestas'));
+        $json_encuestas= json_encode($encuestas);
+        //dd($json_encuestas);
+        return view('Encuesta.index',compact('encuestas','json_encuestas'));
     }
     public function gestor()
     {
@@ -50,6 +53,7 @@ class EncuestaController extends Controller
         DB::table('encuestas')->insert([
 
             "nombre_cli" => $request->input('cliente'),
+            "sucursal" => $request->input('sucursal'),
             "fecha_emision" => Carbon::now(),
             "encargado_cli" => $request->input('encargado'),
             "tecnico" => $request->input('tecnico_en_terreno'),
@@ -100,6 +104,7 @@ class EncuestaController extends Controller
         DB::table('encuestas')->where('id_encuesta',$id)->update([
 
             "nombre_cli" => $request->input('cliente'),
+            "sucursal" => $request->input('sucursal'),
             "fecha_emision" => Carbon::now(),
             "encargado_cli" => $request->input('encargado'),
             "tecnico" => $request->input('tecnico_en_terreno'),

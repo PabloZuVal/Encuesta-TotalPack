@@ -11,24 +11,28 @@
             
             <div class="form-group">
                 <label for="formGroupExampleInput">Cliente</label>
-                <input type="text" class="form-control" name="cliente" id="formGroupExampleInput" value="{{$encuestaa->nombre_cli}}">
+                <input type="text" class="form-control" name="cliente" id="formGroupExampleInput" value="{{$encuestaa->nombre_cli}}"required>
+            </div>
+            <div class="form-group">
+                    <label for="formGroupExampleInput">Sucursal</label>
+                    <input type="text" class="form-control" name="sucursal" id="formGroupExampleInput" value="{{$encuestaa->sucursal}}"required>
             </div>
             {{--FECHA EMISION CREATED AT--}} 
             <div class="form-group">
                 <label for="formGroupExampleInput2">Encargado</label>
-                <input type="text" class="form-control" name="encargado" id="formGroupExampleInput3" value="{{$encuestaa->encargado_cli}}">
+                <input type="text" class="form-control" name="encargado" id="formGroupExampleInput3" value="{{$encuestaa->encargado_cli}}"required>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Tecnico en terreno</label>
-                <input type="text" class="form-control" name="tecnico_en_terreno" id="formGroupExampleInput4" value="{{$encuestaa->tecnico}}">
+                <input type="text" class="form-control" name="tecnico_en_terreno" id="formGroupExampleInput4" value="{{$encuestaa->tecnico}}"required>
             </div>
             <div class="form-group">
                     <label for="exampleFormControlTextarea1">Observaciones</label>
-                    <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="4" >{{$encuestaa->observaciones}}</textarea>
+                    <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="4" required>{{$encuestaa->observaciones}}</textarea>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Contacto</label>
-                <input type="text" class="form-control" name="contacto" id="formGroupExampleInput4" value="{{$encuestaa->contacto}}">
+                <input type="text" class="form-control" name="contacto" id="formGroupExampleInput4" value="{{$encuestaa->contacto}}" required>
             </div>
             {{--IMPORTANTE CAMPO "TYPE=SUBMIT" PARA EL CREATE--}}
             <button class="btn btn-success btn-sm" type="submit" name="createButton" >Editar encuesta</button>

@@ -17,6 +17,7 @@ class CreateEncuestasTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id_encuesta');
             $table->string('nombre_cli');
+            $table->string('sucursal');
             $table->dateTime('fecha_emision');
             $table->string('encargado_cli');
             $table->string('tecnico');

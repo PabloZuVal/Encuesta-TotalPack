@@ -16,7 +16,7 @@
         </form>
     </div>
     
-    <a class="btn btn-secondary btn-sm" href="{{ route('pregunta.gestor',$encuestaa->id_encuesta) }}" role="button">Atras</a>
+    <a class="btn btn-secondary btn-sm" href="{{ route('pregunta.index',$encuestaa->id_encuesta) }}" role="button">Atras</a>
 
     <div class="card-body">
         @if (session('status'))

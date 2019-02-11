@@ -103,8 +103,14 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pregunta $pregunta)
+    public function destroy($id)
     {
-        //
+        dd($id);
+        $pregunta = DB::table('preguntas')->where('id_pregunta',$id)->first();
+        $encuestaa = DB::table('encuestas')->where('id_encuesta',$pregunta->id_encuesta_foranea)->first();
+        $id2 = $encuestaa->id_encuesta;
+
+        DB::table('preguntas')->where('id_pregunta',$id)->delete();
+        return redirect()->route('pregunta.index',compact('id2'));
     }
 }

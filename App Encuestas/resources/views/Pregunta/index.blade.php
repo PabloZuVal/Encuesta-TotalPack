@@ -8,7 +8,7 @@
     
     <div class="container">
         <div class="tab-content">
-            <table class="table">
+            <table class="table table-striped table-dark table-sm">
                 <thead>
                     <tr>
                         <th>Preguntas</th>
@@ -24,7 +24,7 @@
                         <td>boton respuestaa</td>
                         <td><a class="btn btn-primary btn-sm" href="{{ route('pregunta.edit',$pregunta_encuesta->id_pregunta) }}" role="button">Editar</a></td>
                         <td>
-                            <form method="POST" action="{{-- route('encuesta.destroy', $encuesta->id_encuesta) --}}">
+                            <form method="POST" action="{{ route('encuesta.destroy', $pregunta_encuesta->id_pregunta) }}">
                                 {!! csrf_field() !!}
                                 {!! method_field('DELETE') !!}
                                 <button class="btn btn-danger btn-sm" type="submit">Eliminar</button><!-- Eliminar -->

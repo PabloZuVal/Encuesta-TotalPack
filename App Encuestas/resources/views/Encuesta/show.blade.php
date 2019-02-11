@@ -6,6 +6,7 @@
    
     <ul class="list-group">
         <li class="list-group-item">Cliente : {{ $encuestaa->nombre_cli}}</li>
+        <li class="list-group-item">Sucursal: {{ $encuestaa->sucursal}}</li>
         <li class="list-group-item">Fecha de emision : {{$encuestaa->fecha_emision}}</li>
         <li class="list-group-item">Nombre encargado : {{$encuestaa->encargado_cli}}</li>
         <li class="list-group-item">Nombre tecnico : {{$encuestaa->tecnico}}</li>

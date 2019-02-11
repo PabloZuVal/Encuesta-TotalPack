@@ -8,7 +8,7 @@ class Encuesta extends Model
 {
     protected $table = 'encuestas';
     protected $fillable = [
-        'id_encuesta','nombre_cli','fecha_emision','encargado_cli','tecnico','observaciones','contacto','id_user',//'id_pregunta_foranea',//agregar foranea
+        'id_encuesta','nombre_cli','sucursal','fecha_emision','encargado_cli','tecnico','observaciones','contacto','id_user',//'id_pregunta_foranea',//agregar foranea
     ];
     
     public function users()

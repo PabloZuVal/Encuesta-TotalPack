@@ -7,10 +7,12 @@
     <a class="btn btn-success btn-sm" href="{{ route('encuesta.create') }}" role="button">Crear encuesta</a>
     <div class="container">
         <div class="tab-content">
-            <table class="table">
+            <table class="table table-hover table-striped  table-dark ">
                 <thead>
                     <tr>
+                        <th>N°</th>
                         <th>Mostrar Cliente</th>
+                        <th>Sucursal</th>
                         <th>Fecha emision</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
@@ -19,12 +21,14 @@
                 </thead>
                 <tbody>
                     @foreach ($encuestas as $encuesta)
-                    <tr>   
+                    <tr>
+                        <th>{{$encuesta->id_encuesta}}</th>   
                         <td>
                             <a href="{{ route('encuesta.show',$encuesta->id_encuesta) }}">
                                 {{ $encuesta->nombre_cli}}
                             </a>
                         </td>
+                        <td>{{ $encuesta->sucursal}}</td>
                         <td>{{ $encuesta->fecha_emision}}</td>
                         <td><a class="btn btn-primary btn-sm" href="{{ route('encuesta.edit',$encuesta->id_encuesta) }}" role="button">Editar</a></td><!-- Editar -->
                         <td>

@@ -7,26 +7,37 @@
         
         <form method="POST" action ={{route('encuesta.store')}} class="form-group" >
             @csrf
+            {!! csrf_field()!!}
             <div class="form-group">
                 <label for="formGroupExampleInput">Cliente</label>
                 <input type="text" class="form-control" name="cliente" id="formGroupExampleInput" placeholder="Ingrese nombre de cliente">
+                {!! $errors->first('cliente','<span class=error>:message</span>')!!}
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Sucursal</label>
+                <input type="text" class="form-control" name="sucursal" id="formGroupExampleInput" placeholder="Ingrese la sucursal">
+                {!! $errors->first('sucursal','<span class=error>:message</span>')!!}
             </div>
             {{--FECHA EMISION CREATED AT--}} 
             <div class="form-group">
                 <label for="formGroupExampleInput2">Encargado</label>
                 <input type="text" class="form-control" name="encargado" id="formGroupExampleInput3" placeholder="Ingrese nombre de encargado">
+                {!! $errors->first('encargado','<span class=error>:message</span>')!!}
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Tecnico en terreno</label>
                 <input type="text" class="form-control" name="tecnico_en_terreno" id="formGroupExampleInput4" placeholder="Ingrese nombre de tecnico en terreno">
+                {!! $errors->first('tecnico_en_terreno','<span class=error>:message</span>')!!}
             </div>
             <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Observaciones</label>
-                    <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="4"></textarea>
+                <label for="exampleFormControlTextarea1">Observaciones</label>
+                <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="4"></textarea>
+                {!! $errors->first('observaciones','<span class=error>:message</span>')!!}
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Contacto</label>
                 <input type="text" class="form-control" name="contacto" id="formGroupExampleInput4" placeholder="Ingrese Contacto : N° de telefono y/ó correo electronico">
+                {!! $errors->first('contacto','<span class=error>:message</span>')!!}
             </div>
             {{--IMPORTANTE CAMPO "TYPE=SUBMIT" PARA EL CREATE--}}
             <button class="btn btn-success btn-sm" type="submit" name="createButton" >Crear encuesta</button>
