@@ -5,9 +5,10 @@
     <h1 align="center">Gestor - Encuestas</h1>
 
     <a class="btn btn-success btn-sm" href="{{ route('encuesta.create') }}" role="button">Crear encuesta</a>
+    &nbsp
     <div class="container">
         <div class="tab-content">
-            <table class="table table-hover table-striped  table-dark ">
+            <table class="table table-hover table-striped  table-dark " id="gestor">
                 <thead>
                     <tr>
                         <th>N°</th>
@@ -24,7 +25,7 @@
                     <tr>
                         <th>{{$encuesta->id_encuesta}}</th>   
                         <td>
-                            <a href="{{ route('encuesta.show',$encuesta->id_encuesta) }}">
+                            <a  href="{{ route('encuesta.show',$encuesta->id_encuesta) }}">
                                 {{ $encuesta->nombre_cli}}
                             </a>
                         </td>
@@ -46,10 +47,18 @@
         </div>
     </div>
     <div class="card-body">
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+    </div>
+    <script>
+        $(function(){
+            console.log('jQuery esta funcionando');
+        });
+        $(document).ready(function() {
+            $('#gestor').DataTable();
+        });
+    </script>
 @endsection

@@ -36,3 +36,5 @@ Route::delete('/pregunta/{id}', ['as' => 'pregunta.destroy', 'uses' => 'Pregunta
 //-------------------------------------------CRUD PREGUNTAS CHECKBOX --------------------------------------------------------
 
 //Route::get('/preguntaCheckBox/crear/{id}', ['as' => 'preguntaCheckBox.create', 'uses' => 'PreguntaCheckController@create']);
+
+Route::get('/prueba/mostrar',['as' => 'encuesta.mostrar','uses' => 'EncuestaController@prueba']); //MOSTRAR PRUEBA ELIMINAR LUEGO

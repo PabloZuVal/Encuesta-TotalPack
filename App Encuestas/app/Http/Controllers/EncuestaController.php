@@ -19,10 +19,9 @@ class EncuestaController extends Controller
     
     public function index() //ver aca el metodo post
     {
-        $encuestas = Encuesta::all();
-        $json_encuestas= json_encode($encuestas);
-        //dd($json_encuestas);
-        return view('Encuesta.index',compact('encuestas','json_encuestas'));
+        //$encuestas = Encuesta::all();
+        //return view('Encuesta.index',compact('encuestas'));
+        return view('Encuesta.index'); //solo interesa que imprima una vista
     }
     public function gestor()
     {
@@ -62,7 +61,7 @@ class EncuestaController extends Controller
             "id_user" => Auth::id(),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
-        
+
         ]);
          
         return redirect()->route('encuesta.index');
@@ -128,4 +127,5 @@ class EncuestaController extends Controller
         DB::table('encuestas')->where('id_encuesta',$id)->delete();
         return redirect()->route('encuesta.gestor');
     }
+   
 }
