@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use DB;
 use Carbon\Carbon as Carbon;
-use App\Pregunta as c;
 use App\Encuesta as Encuesta;
 use App\Pregunta as Pregunta;
 use Illuminate\Http\Request;

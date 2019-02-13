@@ -31,10 +31,8 @@ Route::get('/pregunta/{id}/editar', ['as' => 'pregunta.edit', 'uses' => 'Pregunt
 Route::put('/pregunta/{id}', ['as' => 'pregunta.update', 'uses' => 'PreguntaController@update']); //alpha id_pregunta
 Route::delete('/pregunta/{id}', ['as' => 'pregunta.destroy', 'uses' => 'PreguntaController@destroy']); //ELIMINAR ENCUESTA
 
-//Route::post('/prueba', ['as' => 'prueba', 'uses' => 'EncuestaController@prueba']);
-
 //-------------------------------------------CRUD PREGUNTAS CHECKBOX --------------------------------------------------------
 
-//Route::get('/preguntaCheckBox/crear/{id}', ['as' => 'preguntaCheckBox.create', 'uses' => 'PreguntaCheckController@create']);
-
-Route::get('/prueba/mostrar',['as' => 'encuesta.mostrar','uses' => 'EncuestaController@prueba']); //MOSTRAR PRUEBA ELIMINAR LUEGO
+Route::get('/preguntaCheck/mostrar/{id}', ['as' => 'preguntaCheck.index', 'uses' => 'PreguntaCheckController@index']);
+Route::get('/preguntaCheck/crear/{id}', ['as' => 'preguntaCheck.create', 'uses' => 'PreguntaCheckController@create']);
+Route::post('/preguntaCheck/{id}', ['as' => 'preguntaCheck.store', 'uses' => 'PreguntaCheckController@store']); //GUARDAR Y REDIRECCIONAR

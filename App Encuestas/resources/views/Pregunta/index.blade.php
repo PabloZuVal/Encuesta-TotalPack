@@ -4,10 +4,11 @@
     {{-- --------------------------------------------- INDEX DE PREGUNTAS ----------------------------------------- --}}
     <h1 align="center">Index de preguntas, {{$encuestaa->nombre_cli}}</h1>
 
-    <a class="btn btn-success btn-sm" href="{{ route('pregunta.create',$encuestaa->id_encuesta) }}" role="button">Crear Pregunta</a>
-    
     <div class="container">
+        <a class="btn btn-success btn-sm" href="{{ route('pregunta.create',$encuestaa->id_encuesta) }}" role="button">Crear Pregunta</a>
+        <a class="btn btn-warning btn-sm" href="{{ route('preguntaCheck.index',$encuestaa->id_encuesta) }}" role="button">CheckBox</a>
         <div class="tab-content">
+            &nbsp
             <table class="table table-striped table-dark table-sm">
                 <thead>
                     <tr>
@@ -36,32 +37,12 @@
             </table>
         </div>
     </div>
-    <a class="btn btn-success btn-sm" href="{{-- route('pregunta.create') --}}" role="button">Crear CheckBox</a>
-    <div class="container">
-        <div class="tab-content">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Preguntas - CheckBox</th>
-                        <th>Respuestas</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{-- Aca  @foreach --}}
-                </tbody>
-            </table>
-        </div>
-    </div>
-
     <a class="btn btn-secondary btn-sm" href="{{ route('encuesta.gestor') }}" role="button">Atras</a>
-
     <div class="card-body">
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+    </div>
 @endsection
