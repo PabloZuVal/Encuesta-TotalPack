@@ -9,7 +9,7 @@
             @csrf
             <div class="form-group">
                 <label for="formGroupExampleInput">Ingrese Nueva pregunta : </label>
-                <input type="text" class="form-control" name="pregunta_new" id="formGroupExampleInput" placeholder="Ingrese Aqui">
+                <input type="text" class="form-control" name="pregunta_new" id="formGroupExampleInput" placeholder="Ingrese Aqui"required>
             </div>
             {{--IMPORTANTE CAMPO "TYPE=SUBMIT" PARA EL CREATE--}}
             <button class="btn btn-success btn-sm" type="submit" name="createButton" >Crear Pregunta</button>

@@ -15,9 +15,9 @@
                         <th>Mostrar Cliente</th>
                         <th>Sucursal</th>
                         <th>Fecha emision</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                        <th>Preguntas</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,7 +39,7 @@
                                 <button class="btn btn-danger btn-sm" type="submit">Eliminar</button><!-- Eliminar -->
                             </form>
                         </td>
-                        <td><a class="btn btn-warning btn-sm" href="{{route('pregunta.index',$encuesta->id_encuesta)}}" role="button">Preguntas</a></td><!-- Preguntas (Este campo incluye preguntas normales y CheckBox) --> 
+                        <td><a class="btn btn-warning btn-sm" href="{{route('secciones.index',$encuesta->id_encuesta)}}" role="button">Secciones</a></td><!-- esta ruta separa las secciones de la encuesta y cada seccion tien tipos de preguntas --> 
                     </tr> 
                     @endforeach
                 </tbody>

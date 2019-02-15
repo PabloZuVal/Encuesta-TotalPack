@@ -21,7 +21,7 @@ class PreguntaCheckController extends Controller
         $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); // Todo OK
         return view('pregunta.checkbox.index',compact('preguntas_check_encuesta','encuestaa')); //OK
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -43,6 +43,7 @@ class PreguntaCheckController extends Controller
     {
         DB::table('pregunta_checks')->insert([
             "pregunta_check" => $request->input('pregunta_check_new'),
+            "tipo_respuesta" =>$request->input('tipo_pregunta'),
             "id_encuesta" => $id,
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()

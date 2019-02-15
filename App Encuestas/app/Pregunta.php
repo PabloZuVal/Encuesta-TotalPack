@@ -8,11 +8,11 @@ class Pregunta extends Model
 {
     protected $table = 'preguntas';
     protected $fillable = [
-        'id_pregunta','pregunta','id_encuesta_foranea',
+        'id_pregunta','pregunta','tipo_respuesta','Activado','secuencia','id_pagina',
     ];
     
     public function encuesta()
     {
-        return $this->belongsTo(Encuesta::class);
+        return $this->belongsTo(pagina::class);
     }
 }

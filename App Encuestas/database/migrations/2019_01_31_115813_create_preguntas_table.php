@@ -16,8 +16,11 @@ class CreatePreguntasTable extends Migration
         Schema::create('preguntas', function (Blueprint $table) {
             $table->increments('id_pregunta');
             $table->string('pregunta');
-            $table->integer('id_encuesta_foranea')->unsigned(); 
-            $table->foreign('id_encuesta_foranea')->references('id_encuesta')->on('encuestas'); 
+            $table->enum('tipo_respuesta',['checkbox','string','select']); //agregado 
+            $table->boolean('Activado');
+            $table->integer('secuencia');
+            $table->integer('id_pagina')->unsigned(); 
+            $table->foreign('id_pagina')->references('id_pagina')->on('paginas'); 
             $table->timestamps();
         });
     }

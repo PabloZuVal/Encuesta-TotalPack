@@ -17,11 +17,12 @@ class PreguntaController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function index($id) //Muestra preguntas de todas las encuestas
+    public function index($id) //Muestra preguntas de todas las paginas/secciones
     {
-        $preguntas_encuesta = Pregunta::where('id_encuesta_foranea','=',$id)->get(); //Todo OK
-        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); // Todo OK
-        return view('pregunta.index',compact('preguntas_encuesta','encuestaa')); //OK
+        $preguntas_pagina = Pregunta::where('id_pagina','=',$id)->get(); //(el id foraneo de pregunta == id de la pagina)
+        //dd($preguntas_pagina); //muestra las preguntas de la pagina
+        //$encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); // Todo OK
+        return view('pregunta.index',compact('preguntas_pagina')); //OK
     }
 
     /**
@@ -104,7 +105,6 @@ class PreguntaController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
         $pregunta = DB::table('preguntas')->where('id_pregunta',$id)->first();
         $encuestaa = DB::table('encuestas')->where('id_encuesta',$pregunta->id_encuesta_foranea)->first();
         $id2 = $encuestaa->id_encuesta;

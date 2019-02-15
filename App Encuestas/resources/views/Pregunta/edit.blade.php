@@ -11,7 +11,7 @@
 
             <div class="form-group">
                 <label for="formGroupExampleInput">Ingrese Nueva pregunta : </label>
-                <input type="text" class="form-control" name="pregunta_edit" id="formGroupExampleInput" value="{{$pregunta->pregunta}}">
+                <input type="text" class="form-control" name="pregunta_edit" id="formGroupExampleInput" value="{{$pregunta->pregunta}}"required>
             </div>
             {{--IMPORTANTE CAMPO "TYPE=SUBMIT" PARA EL CREATE--}}
             <button class="btn btn-success btn-sm" type="submit" name="createButton" >Editar Pregunta</button>

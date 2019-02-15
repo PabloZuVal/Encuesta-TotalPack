@@ -26,6 +26,7 @@ class EncuestaController extends Controller
     public function gestor()
     {
         $encuestas = Encuesta::all();
+        //dd($encuestas);
         return view('encuesta.gestor',compact('encuestas'));
     }
 
