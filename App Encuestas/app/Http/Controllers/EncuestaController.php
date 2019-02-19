@@ -59,6 +59,7 @@ class EncuestaController extends Controller
             "tecnico" => $request->input('tecnico_en_terreno'),
             "observaciones" => $request->input('observaciones'),
             "contacto" => $request->input('contacto'),
+            "Activado" => true,
             "id_user" => Auth::id(),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
@@ -125,8 +126,14 @@ class EncuestaController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('encuestas')->where('id_encuesta',$id)->delete();
-        return redirect()->route('encuesta.gestor');
+        //DB::table('encuestas')->where('id_encuesta',$id)->delete();
+        //return redirect()->route('encuesta.gestor');
+        DB::table('encuestas')->where('id_encuesta',$id)->update([
+            "Activado" => false,
+            "updated_at" => Carbon::now()
+        ]);
+        
+        return redirect()->route('encuesta.index');
     }
    
 }

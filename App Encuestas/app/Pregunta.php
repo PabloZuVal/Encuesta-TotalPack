@@ -13,6 +13,6 @@ class Pregunta extends Model
     
     public function encuesta()
     {
-        return $this->belongsTo(pagina::class);
+        return $this->hasto(pagina::class); //ver bien esta relacion
     }
 }

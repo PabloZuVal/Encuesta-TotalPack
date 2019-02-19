@@ -23,6 +23,7 @@ class CreateEncuestasTable extends Migration
             $table->string('tecnico');
             $table->text('observaciones');
             $table->string('contacto');
+            $table->boolean('Activado');
             $table->integer('id_user')->unsigned(); 
             $table->foreign('id_user')->references('id')->on('users'); 
             $table->timestamps();

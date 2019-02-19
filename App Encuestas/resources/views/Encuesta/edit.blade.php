@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <h1 align="center" >Editar encuesta de {{ $encuestaa->nombre_cli}}</h1>
+    <h1 class="display-4" align="center" >Editar encuesta, {{ $encuestaa->nombre_cli}}</h1>
 
     <div class="container">
         

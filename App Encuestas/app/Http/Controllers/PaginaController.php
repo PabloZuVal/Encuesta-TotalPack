@@ -105,7 +105,7 @@ class PaginaController extends Controller
      */
     public function destroy(Request $request,$id)
     {
-        DB::table('paginas')->where('id_pagina',$id)->update([ //aca 
+        DB::table('paginas')->where('id_pagina',$id)->update([ 
             "Activado" => false,
         ]);
         $pagina = DB::table('paginas')->where('id_pagina',$id)->first();

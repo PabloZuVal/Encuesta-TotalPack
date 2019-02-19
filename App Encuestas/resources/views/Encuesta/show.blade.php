@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 align="center">Detalles</h1>
+    <h1 class="display-4" align="center">Detalles</h1>
    
     <ul class="list-group">
         <li class="list-group-item">Cliente : {{ $encuestaa->nombre_cli}}</li>

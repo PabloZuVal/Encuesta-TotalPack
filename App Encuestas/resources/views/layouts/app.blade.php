@@ -47,26 +47,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     
-                    <!-- --------------------------------------------------------------------------------------------------- -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist"> <!-- PESTAÑAS -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         
-                        <li class="nav-item ">
-                            <a class="nav-link"   href="{{ route('encuesta.index') }}">Encuestas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"  href="{{ route('encuesta.gestor') }}">Gestor de encuestas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Administrador de instalaciones</a>
-                        </li>
-                        <!--
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                        -->
-                    
-                    </ul>
-                    <!-- --------------------------------------------------------------------------------------------------- -->
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active">
+                                        <a class="nav-item nav-link" href="{{ route('encuesta.index') }}">  Historial  <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-item nav-link" href="{{ route('encuesta.gestor') }}">  Gestor  </a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-item nav-link" href="{{ route('simulacion.index') }}">  Simulación  </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

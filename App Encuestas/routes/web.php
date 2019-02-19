@@ -19,7 +19,10 @@ Route::post('/encuesta', ['as' => 'encuesta.store', 'uses' => 'EncuestaControlle
 Route::get('/encuesta/{id}', ['as' => 'encuesta.show', 'uses' => 'EncuestaController@show']); //MOSTRAR DATOS DE ENCUESTA POR ID
 Route::get('/encuesta/{id}/editar', ['as' => 'encuesta.edit', 'uses' => 'EncuestaController@edit']); //EDITAR ENCUESTA
 Route::put('/encuesta/{id}', ['as' => 'encuesta.update', 'uses' => 'EncuestaController@update']); //ACTUALIZAR Y REDIRECCIONAR ENCUESTA
-Route::delete('/encuesta/{id}', ['as' => 'encuesta.destroy', 'uses' => 'EncuestaController@destroy']); //ELIMINAR ENCUESTA
+Route::get('/encuesta/destroy/{id}', ['as' => 'encuesta.destroy', 'uses' => 'EncuestaController@destroy']); //ELIMINAR ENCUESTA 
+
+//--------------------------------------------CRUD PREGUNTA CLASICA ---------------------------------------------------------------
+Route::get('/preguntasclasicas/mostrar/{id}',['as' => 'preguntaclasica.index','uses' => 'PreguntaClasicaController@index']); //VISTA CRUD PRINCIPAL DE PREGUNTAS CLASICAS
 
 //-------------------------------------------- CRUD SECCIONES (HACIENDO AHORA)-------------------------------------------------------------
 Route::get('/secciones/mostrar/{id}',['as' => 'secciones.index','uses' => 'PaginaController@index']); //MOSTRAR CRUD Secciones (Se envia el id de encuesta)
@@ -38,6 +41,10 @@ Route::post('/pregunta/{id}', ['as' => 'pregunta.store', 'uses' => 'PreguntaCont
 Route::get('/pregunta/{id}/editar', ['as' => 'pregunta.edit', 'uses' => 'PreguntaController@edit']); //alpha id_pregunta
 Route::put('/pregunta/{id}', ['as' => 'pregunta.update', 'uses' => 'PreguntaController@update']); //alpha id_pregunta
 Route::delete('/pregunta/{id}', ['as' => 'pregunta.destroy', 'uses' => 'PreguntaController@destroy']); //ELIMINAR ENCUESTA
+
+//--------------------------------------------- SIMULACION -----------------------------------------------------------------
+
+Route::get('/simulacion/encuestas', ['as' => 'simulacion.index', 'uses' => 'HomeController@simulacionIndex']);
 
 
 

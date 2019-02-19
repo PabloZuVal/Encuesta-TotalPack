@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\RespuestaCheck;
+use App\RespuestaClasica;
 use Illuminate\Http\Request;
 
-class RespuestaCheckController extends Controller
+class RespuestaClasicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class RespuestaCheckController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\RespuestaCheck  $respuestaCheck
+     * @param  \App\RespuestaClasica  $respuestaClasica
      * @return \Illuminate\Http\Response
      */
-    public function show(RespuestaCheck $respuestaCheck)
+    public function show(RespuestaClasica $respuestaClasica)
     {
         //
     }
@@ -52,10 +52,10 @@ class RespuestaCheckController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\RespuestaCheck  $respuestaCheck
+     * @param  \App\RespuestaClasica  $respuestaClasica
      * @return \Illuminate\Http\Response
      */
-    public function edit(RespuestaCheck $respuestaCheck)
+    public function edit(RespuestaClasica $respuestaClasica)
     {
         //
     }
@@ -64,10 +64,10 @@ class RespuestaCheckController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\RespuestaCheck  $respuestaCheck
+     * @param  \App\RespuestaClasica  $respuestaClasica
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RespuestaCheck $respuestaCheck)
+    public function update(Request $request, RespuestaClasica $respuestaClasica)
     {
         //
     }
@@ -75,10 +75,10 @@ class RespuestaCheckController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\RespuestaCheck  $respuestaCheck
+     * @param  \App\RespuestaClasica  $respuestaClasica
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RespuestaCheck $respuestaCheck)
+    public function destroy(RespuestaClasica $respuestaClasica)
     {
         //
     }
