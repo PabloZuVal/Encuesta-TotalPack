@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="display-4" align="center">Gestor - Encuestas</h1>
+    <h1 class="display-4" align="center"> - Gestor - </h1>
 
     <a class="btn btn-success btn-sm" href="{{ route('encuesta.create') }}" role="button">Crear encuesta</a> {{-- outline --}}
     &nbsp

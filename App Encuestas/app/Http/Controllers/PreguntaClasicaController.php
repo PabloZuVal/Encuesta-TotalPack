@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\PreguntaClasica;
+use App\PreguntaClasica as PreguntaClasica;
 use Illuminate\Http\Request;
+use DB;
 
 class PreguntaClasicaController extends Controller
 {
@@ -14,7 +15,10 @@ class PreguntaClasicaController extends Controller
      */
     public function index($id)
     {
-        //
+        $preguntasC_encuesta = PreguntaClasica::where('id_encuesta','=',$id)->get(); //Todo OK
+        $encuestaa = DB::table('encuestas')->where('id_encuesta',$id)->first(); // Todo OK
+        return view('PreguntaComun.index',compact('preguntasC_encuesta','encuestaa'));
+        
     }
 
     /**
@@ -24,7 +28,7 @@ class PreguntaClasicaController extends Controller
      */
     public function create()
     {
-        //
+        return view('PreguntaComun.edit');
     }
 
     /**

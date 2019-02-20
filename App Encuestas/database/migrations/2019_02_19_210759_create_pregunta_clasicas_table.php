@@ -16,6 +16,7 @@ class CreatePreguntaClasicasTable extends Migration
         Schema::create('pregunta_clasicas', function (Blueprint $table) {
             $table->increments('id_pregunta_clasica');
             $table->string('pregunta');
+            $table->boolean('Activado');
             $table->integer('id_encuesta')->unsigned(); 
             $table->foreign('id_encuesta')->references('id_encuesta')->on('encuestas'); 
             $table->timestamps();

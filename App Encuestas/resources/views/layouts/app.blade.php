@@ -56,10 +56,10 @@
                                         <a class="nav-item nav-link" href="{{ route('encuesta.index') }}">  Historial  <span class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item active">
-                                        <a class="nav-item nav-link" href="{{ route('encuesta.gestor') }}">  Gestor  </a>
+                                        <a class="nav-item nav-link" href="{{ route('encuesta.gestor') }}"> - Gestor - </a>
                                     </li>
                                     <li class="nav-item active">
-                                        <a class="nav-item nav-link" href="{{ route('simulacion.index') }}">  Simulación  </a>
+                                        <a class="nav-item nav-link" href="{{ route('simulacion.index') }}">  Simulador  </a>
                                     </li>
                                 </ul>
                             </div>

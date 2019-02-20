@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="display-4" align="center">Historial - Encuestas de satisfacción</h1>
+    <h1 class="display-4" align="center"> - Historial - </h1>
     <div class="container">
         <div class="tab-content">
             <table class="table table-hover table-striped " id="encuestass">
