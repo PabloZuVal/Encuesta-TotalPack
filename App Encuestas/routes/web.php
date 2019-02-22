@@ -21,8 +21,25 @@ Route::get('/encuesta/{id}/editar', ['as' => 'encuesta.edit', 'uses' => 'Encuest
 Route::put('/encuesta/{id}', ['as' => 'encuesta.update', 'uses' => 'EncuestaController@update']); //ACTUALIZAR Y REDIRECCIONAR ENCUESTA
 Route::get('/encuesta/destroy/{id}', ['as' => 'encuesta.destroy', 'uses' => 'EncuestaController@destroy']); //ELIMINAR ENCUESTA 
 
-//--------------------------------------------CRUD PREGUNTA CLASICA ---------------------------------------------------------------
+//--------------------------------------------CRUD PREGUNTA CLASICA ------------------------------------------------------------------
 Route::get('/preguntasclasicas/mostrar/{id}',['as' => 'preguntaclasica.index','uses' => 'PreguntaClasicaController@index']); //VISTA CRUD PRINCIPAL DE PREGUNTAS CLASICAS
+Route::get('/preguntasclasicas/crear/{id}', ['as' => 'preguntaclasica.create', 'uses' => 'PreguntaClasicaController@create']); // CREAR ENCUESTA (FORMULARIO DE CREACION)
+Route::post('/preguntasclasicas/{id}', ['as' => 'preguntaclasica.store', 'uses' => 'PreguntaClasicaController@store']); //GUARDAR Y REDIRECCIONAR
+Route::get('/preguntasclasicas/{id}/editar', ['as' => 'preguntaclasica.edit', 'uses' => 'PreguntaClasicaController@edit']);
+Route::put('/preguntasclasicas/{id}', ['as' => 'preguntaclasica.update', 'uses' => 'PreguntaClasicaController@update']);
+Route::get('/preguntasclasicas/{id}/delete', ['as' => 'preguntaclasica.destroy', 'uses' => 'PreguntaClasicaController@destroy']); //desactivar pregunta
+
+//-----------------ajax pregunta clasica--------------------
+
+Route::get('/preguntas/ajax/', ['as' => 'preguntaclasica.create2', 'uses' => 'PreguntaClasicaController@create2']);
+Route::get('/preguntas/ajax/editar', ['as' => 'preguntaclasica.edit2', 'uses' => 'PreguntaClasicaController@edit2']);
+
+
+
+// ------------------------------------------------- RESPUESTAS ------------------------------------------------------------------------
+Route::get('/respuestaclasica/mostrar/{id}',['as' => 'respuestaclasica.index','uses' => 'RespuestaClasicaController@index']); //VISTA CRUD PRINCIPAL DE PREGUNTAS CLASICAS
+Route::get('/respuestaclasica/crear/{id}', ['as' => 'respuestaclasica.create', 'uses' => 'RespuestaClasicaController@create']); // CREAR ENCUESTA (FORMULARIO DE CREACION)
+Route::post('/respuestaclasica/{id}', ['as' => 'respuestaclasica.store', 'uses' => 'RespuestaClasicaController@store']); //GUARDAR Y REDIRECCIONAR
 
 //-------------------------------------------- CRUD SECCIONES (HACIENDO AHORA)-------------------------------------------------------------
 Route::get('/secciones/mostrar/{id}',['as' => 'secciones.index','uses' => 'PaginaController@index']); //MOSTRAR CRUD Secciones (Se envia el id de encuesta)
@@ -45,12 +62,8 @@ Route::delete('/pregunta/{id}', ['as' => 'pregunta.destroy', 'uses' => 'Pregunta
 //--------------------------------------------- SIMULACION -----------------------------------------------------------------
 
 Route::get('/simulacion/encuestas', ['as' => 'simulacion.index', 'uses' => 'HomeController@simulacionIndex']);
+Route::post('/simulacion/encuestas/Mostrar', ['as' => 'simulacion.show', 'uses' => 'HomeController@show']);
 
 
-
-//--------------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------CRUD PREGUNTAS CHECKBOX --------------------------------------------------------
-
-Route::get('/preguntaCheck/mostrar/{id}', ['as' => 'preguntaCheck.index', 'uses' => 'PreguntaCheckController@index']);
-Route::get('/preguntaCheck/crear/{id}', ['as' => 'preguntaCheck.create', 'uses' => 'PreguntaCheckController@create']);
-Route::post('/preguntaCheck/{id}', ['as' => 'preguntaCheck.store', 'uses' => 'PreguntaCheckController@store']); //GUARDAR Y REDIRECCIONAR
+Route::post('insertarData','HomeController@insertarData');
+//-------------------------------------------------------------------------------------------------------------------------

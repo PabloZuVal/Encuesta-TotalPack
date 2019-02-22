@@ -29,7 +29,14 @@ class HomeController extends Controller
     }
     public function simulacionIndex(){
         $encuestas = Encuesta::all();
-        //dd($encuestas);
-        return view('simulacion',compact('encuestas'));
+        return view('Formulario.simulacion',compact('encuestas'));
+    }
+    
+    public function show(Request $request){ //recibir parametros de un formulario
+        //$encuestaa = DB::table('encuestas')->where('id_encuesta','=',$request->txtidencuesta)->get();
+        $preguntas = DB::table('pregunta_clasicas')->where('id_encuesta','=',$request->txtidencuesta)->get();
+        return $preguntas;
+        //------------------------------------------------------------------------------------------------------
+        //return redirect()->route('Formulario.index-encuestaCorriente',compact('preguntas'));
     }
 }

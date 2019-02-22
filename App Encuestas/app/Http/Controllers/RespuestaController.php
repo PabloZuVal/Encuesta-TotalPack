@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Respuesta;
 use Illuminate\Http\Request;
+use App\PreguntaClasica as PreguntaClasica;
 
 class RespuestaController extends Controller
 {
@@ -22,7 +23,7 @@ class RespuestaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id) //Este es el id de la pregunta
     {
         //
     }
@@ -33,7 +34,7 @@ class RespuestaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id) // id de la pregunta
     {
         //
     }

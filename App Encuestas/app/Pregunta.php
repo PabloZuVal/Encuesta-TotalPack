@@ -11,7 +11,7 @@ class Pregunta extends Model
         'id_pregunta','pregunta','tipo_respuesta','Activado','secuencia','id_pagina',
     ];
     
-    public function encuesta()
+    public function pagina()
     {
         return $this->hasto(pagina::class); //ver bien esta relacion
     }

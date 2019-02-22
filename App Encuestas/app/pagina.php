@@ -11,7 +11,7 @@ class pagina extends Model
         'id_pagina','nombre_seccion','secuencia','Activado','id_encuesta',
     ];
     
-    public function users()
+    public function encuesta()
     {
         return $this->belongsTo(pregunta::class);
     }
