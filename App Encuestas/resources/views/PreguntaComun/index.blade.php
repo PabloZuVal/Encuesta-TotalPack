@@ -8,9 +8,7 @@
 
      {{--<a class="btn btn-success btn-sm" href="{{ route('preguntaclasica.create',$encuestaa->id_encuesta) }}" role="button">Nueva pregunta</a><br>--}}
 
-    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
-        Nueva pregunta
-    </button>
+    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenter">Nueva pregunta</button>
 
     <div class="container">
         <div class="tab-content">
@@ -129,28 +127,7 @@
                 },
             });
         });
-        // for Insert Ajax
-        $('#editButton').click(function(){
-            $.ajax({
-                url: "{{ route('preguntaclasica.edit2') }}",
-                type:'GET',
-                cache:false,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data:{
-                    //'_token':$('input[name=_token').val(),
-                    //'pregunta':$('#pregunta_new').val(),
-                    'id_pregunta_clasica': "{{$preguntaC_encuesta->id_pregunta_clasica}}",
-                    'pregunta':$("input[name='pregunta_edit'").val(),
-                    //'id_encuesta': "{{$encuestaa->id_encuesta}}",
-                },
-                success:function(result){
-                    window.location.reload();
-                    //console.log(result);
-                },
-            });
-
-        });
+        // for Insert Ajaxt
+     
     </script>
 @endsection

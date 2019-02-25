@@ -62,6 +62,9 @@ Route::delete('/pregunta/{id}', ['as' => 'pregunta.destroy', 'uses' => 'Pregunta
 //--------------------------------------------- SIMULACION -----------------------------------------------------------------
 
 Route::get('/simulacion/encuestas', ['as' => 'simulacion.index', 'uses' => 'HomeController@simulacionIndex']);
+Route::get('/simulacion/encuestas/dos', ['as' => 'simulacion.index2', 'uses' => 'HomeController@simulacionIndex2']);
+Route::get('/simulacion/encuestas/respuestas/guardar', ['as' => 'simulacion.guardar', 'uses' => 'HomeController@guardarrespuestas']); //guardar respuestas de la simulacion
+
 Route::post('/simulacion/encuestas/Mostrar', ['as' => 'simulacion.show', 'uses' => 'HomeController@show']);
 
 

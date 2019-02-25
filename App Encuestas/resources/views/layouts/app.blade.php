@@ -63,7 +63,7 @@
                                         <a class="nav-item nav-link" href="{{ route('encuesta.gestor') }}">  Gestor de contenido </a>
                                     </li>
                                     <li class="nav-item active">
-                                        <a class="nav-item nav-link" href="{{ route('simulacion.index') }}">  Simulador  </a>
+                                        <a class="nav-item nav-link" href="{{ route('simulacion.index2') }}">  Simulador  </a>
                                     </li>
                                 </ul>
                             </div>
@@ -80,8 +80,8 @@
                             </li>
                             {{--@endif--}}
                         @else
-                            <a class ="btn btn-outline-primary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ Auth::user()->name }}: Logout
+                            <a class ="btn btn-outline-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                               Usuario : {{ Auth::user()->name }} -> Logout
                             </a>
                             
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -98,7 +98,7 @@
         
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <div class="card">
                             <div class="card-header">Sistema de encuestas</div>
                                 @yield('content')
