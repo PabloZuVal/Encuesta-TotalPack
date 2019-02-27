@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use DB;
 use App\Encuesta as Encuesta;
-use App\RespuestaClasica as RespuestaClasica;
+use App\RespuestaClasica;
 use Illuminate\Support\Facades\Log;
+
 
 class HomeController extends Controller
 {
@@ -42,17 +44,47 @@ class HomeController extends Controller
         //$encuestaa = DB::table('encuestas')->where('id_encuesta','=',$request->txtidencuesta)->get();
         $preguntas = DB::table('pregunta_clasicas')->where('id_encuesta','=',$request->txtidencuesta)->get();
         return $preguntas;
-        //------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------
         //return redirect()->route('Formulario.index-encuestaCorriente',compact('preguntas'));
     }
     public function guardarrespuestas(Request $request){
-        Log::info($request);
-        /*
-        for ($i=0; $i < $request[$i] ; $i++) {
+        
+        //Log::info($request->toArray()->count());
+
+        $requestArray = $request->toArray();
+        //Log::info($requestArray);
+        for ($i=0 ; $i < (count($requestArray)/2) ; $i++) {
+
+            //Log::info($requestArray);
+            //Log::info(count($requestArray));
+            $stringI = (string)$i;
+            //$requestArray[$i]->respuesta+$stringI;
+            Log::info( $requestArray[$i]->respuesta+$stringI);
+            /*
             $newRespuestaC = new RespuestaClasica();
-            $newRespuestaC->respuesta = $request->respuesta;
-            $newRespuestaC->id_pregunta_clasica = $request->id_pregunta_clasica; //clave foranea
+            //$newRespuestaC->respuesta = $requestArray['respuesta'+$i];
+            $newRespuestaC->respuesta = $requestArray[$i]->respuesta.$i;// "respuesta{$i}";
+            $newRespuestaC->id_pregunta_clasica = $requestArray[$i]->id_pregunta_clasica.$i; //clave foranea
             $newRespuestaC->save();
+            */
+        }
+        //return response()->json($newRespuestaC);
+        
+        //return response()->json($newRespuestaC); // el return se envia a "result" de la vista
+        return "OKOKO";
+        /*
+        foreach ($request as $arregloRespuesta) {
+            $i =0;
+            //$arreglo = (object) array();
+            //array_push($arreglo,$arregloRespuesta);
+            //$arreglo = $arregloRespuesta;
+            //Log::info($arregloRespuesta);
+            //Log::info($arreglo['respuesta']);
+            $newRespuestaC = new RespuestaClasica();
+            $newRespuestaC->respuesta = $arregloRespuesta['respuesta'+$i];
+            $newRespuestaC->id_pregunta_clasica = $arregloRespuesta['id_pregunta_clasica'+$i]; //clave foranea
+            $newRespuestaC->save();
+            $i++;
         }
         return response()->json($newRespuestaC);
         */

@@ -166,7 +166,7 @@
                                         headers: {
                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                         },
-                                        success: function(result) { //exito 
+                                        success: function(result) { //exito
                                             //var tablaHtml = "<table class='table table-hover table-striped table-sm' id='preguntas'>"+"<thead>"+"<tr>"+"<th>Pregunta</th>"+"<th>Respuesta</th>"+"<th>Respuesta</th>"+"</tr>"+"</thead>"+"<tbody>"+"</tbody>"+"</table>";  
                                             for (var i = 0; i < result.length; i++) {
                                                 //console.log(result[i].pregunta);
@@ -175,12 +175,12 @@
                                                         value: i,
                                                         text: result[i].pregunta 
                                                     }));
-                                                    $("tbody").append($('<tr><td><input id="pregunta'+i+'"type="text" class="form-control">',{
+                                                    $("tbody").append($('<tr><td><input id="pregunta'+i+'" type="text" class="form-control">',{
                                                         value: i,
                                                         text: result[i].pregunta 
                                                     }));
                                                     //console.log('pregunta'+i);   
-                                                }                            
+                                                }                           
                                             } 
                                             //console.log(result);
                                             $("table").append('<button id="guardarPreguntas" class="btn btn-success btn-sm">boton de guradar</button>'); //ocupar javascript para guardar los datos
@@ -188,17 +188,11 @@
                                             //$("tbody").empty(); //estoy mostrando el contenido y borrandolo al mismo tiempo.
                                             
                                             $('#guardarPreguntas').click(function(){ //guardar respuestas
-                                                var data1 = new Object();
-                                                for (var i = 0; i < result.length; i++) {
-                                                    if (result[i].Activado == true) {
-                                                        
-                                                        data1[i] = {
-                                                            respuesta:$('#pregunta'+i).val(),
-                                                            id_pregunta_clasica:result[i].id_pregunta_clasica
-                                                        };
-                                                    }
-                                                }
-                                                //var respuestasJson = JSON.stringify(arrayrespuestas);
+
+                                                var object11 = funcion1(result);
+
+                                                //console.log(object11);
+
                                                 //console.log(data1);//guarda las respuestas en el array de objetos data
                                                 $.ajax({
                                                     url:"{{route('simulacion.guardar')}}",
@@ -206,22 +200,35 @@
                                                     headers: {
                                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                                     },
-                                                    data:data1,
-                                                    success:function(result){
+                                                    data:object11,
+                                                    //data1,
+                                                    success:function(result){ //result es lo que retorna el controlador
                                                         //window.location.reload();
-                                                        console.log(result);
+                                                        console.log(result); //array() (retornado $request)
                                                     },
                                                 }); 
                                             });
-                                            
-                                            
+
                                         },
                                         failure: function(err) { //error
                                             console.log(err);
                                         }
                                     }) 
                                 });
-                               
+                                function funcion1(result){    
+                                    var object1 = {};
+                                    
+                                    for (var i = 0; i < result.length ; i++) {
+                                        if (result[i].Activado == true) {
+  
+                                            object1["respuesta"+i] = $('#pregunta'+i).val();
+                                            object1["id_pregunta_clasica"+i] = result[i].id_pregunta_clasica; 
+                                        }
+                                    }
+
+                                    return object1;
+                               }
+
                             </script>
                         </div>
                     </div>
