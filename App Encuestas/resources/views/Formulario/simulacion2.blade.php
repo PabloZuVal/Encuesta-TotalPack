@@ -190,9 +190,7 @@
                                             $('#guardarPreguntas').click(function(){ //guardar respuestas
 
                                                 var object11 = funcion1(result);
-
                                                 //console.log(object11);
-
                                                 //console.log(data1);//guarda las respuestas en el array de objetos data
                                                 $.ajax({
                                                     url:"{{route('simulacion.guardar')}}",
@@ -201,14 +199,12 @@
                                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                                     },
                                                     data:object11,
-                                                    //data1,
                                                     success:function(result){ //result es lo que retorna el controlador
                                                         //window.location.reload();
                                                         console.log(result); //array() (retornado $request)
                                                     },
                                                 }); 
                                             });
-
                                         },
                                         failure: function(err) { //error
                                             console.log(err);
@@ -223,6 +219,7 @@
   
                                             object1["respuesta"+i] = $('#pregunta'+i).val();
                                             object1["id_pregunta_clasica"+i] = result[i].id_pregunta_clasica; 
+                                            
                                         }
                                     }
 

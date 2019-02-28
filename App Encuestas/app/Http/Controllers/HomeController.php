@@ -48,45 +48,28 @@ class HomeController extends Controller
         //return redirect()->route('Formulario.index-encuestaCorriente',compact('preguntas'));
     }
     public function guardarrespuestas(Request $request){
-        
-        //Log::info($request->toArray()->count());
-
+        //Log::info($request);
         $requestArray = $request->toArray();
-        //Log::info($requestArray);
+        Log::info($requestArray);
+
         for ($i=0 ; $i < (count($requestArray)/2) ; $i++) {
 
-            //Log::info($requestArray);
-            //Log::info(count($requestArray));
-            $stringI = (string)$i;
-            //$requestArray[$i]->respuesta+$stringI;
-            Log::info( $requestArray[$i]->respuesta+$stringI);
-            /*
-            $newRespuestaC = new RespuestaClasica();
-            //$newRespuestaC->respuesta = $requestArray['respuesta'+$i];
-            $newRespuestaC->respuesta = $requestArray[$i]->respuesta.$i;// "respuesta{$i}";
-            $newRespuestaC->id_pregunta_clasica = $requestArray[$i]->id_pregunta_clasica.$i; //clave foranea
-            $newRespuestaC->save();
-            */
-        }
-        //return response()->json($newRespuestaC);
-        
+            //if($requestArray[$i] != NULL){
+                $stringI = "respuesta".(string)$i;
+                $preguntaC = "id_pregunta_clasica".(string)$i;
+                //Log::info(count($requestArray));
+                //$requestArray[$i]->respuesta+$stringI;
+                //Log::info($stringI);
+                //Log::info($requestArray[$stringI]);
+                $newRespuestaC = new RespuestaClasica();
+                //$newRespuestaC->respuesta = $requestArray['respuesta'+$i];
+                $newRespuestaC->respuesta = $requestArray[$stringI];// "respuesta{$i}";
+                $newRespuestaC->id_pregunta_clasica = $requestArray[$preguntaC]; //clave foranea
+                $newRespuestaC->save();
+            //}
+        }    
         //return response()->json($newRespuestaC); // el return se envia a "result" de la vista
         return "OKOKO";
-        /*
-        foreach ($request as $arregloRespuesta) {
-            $i =0;
-            //$arreglo = (object) array();
-            //array_push($arreglo,$arregloRespuesta);
-            //$arreglo = $arregloRespuesta;
-            //Log::info($arregloRespuesta);
-            //Log::info($arreglo['respuesta']);
-            $newRespuestaC = new RespuestaClasica();
-            $newRespuestaC->respuesta = $arregloRespuesta['respuesta'+$i];
-            $newRespuestaC->id_pregunta_clasica = $arregloRespuesta['id_pregunta_clasica'+$i]; //clave foranea
-            $newRespuestaC->save();
-            $i++;
-        }
-        return response()->json($newRespuestaC);
-        */
+        
     }
 }
