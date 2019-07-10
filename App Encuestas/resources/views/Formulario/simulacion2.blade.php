@@ -100,11 +100,11 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">Sistema de encuestas - beta </div>
+                            <div class="card-header">Sistema de encuestas - alfa </div>
 
                                 {{--@yield('content')--}}
                                  {{--------------------------------------------------- SIMULACION DE ENCUESTA -----------------------------------------------}}
-                            <h1 class="display-4" align="center">Simulacion de encuestas - BETA</h1><br>
+                            <h1 class="display-4" align="center">Simulacion de encuestas - alfa</h1><br>
                             &nbsp
                             <div class="container">
                                 <div class="row">
@@ -155,7 +155,6 @@
                                 });
 
                                 $('#btnEnviar').click(function(){
-                                    
                                     $.ajax({
                                         url: "{{ route('simulacion.show') }}" ,
                                         type: "POST",
@@ -180,10 +179,10 @@
                                                         text: result[i].pregunta 
                                                     }));
                                                     //console.log('pregunta'+i);   
-                                                }                           
+                                                }                          
                                             } 
                                             //console.log(result);
-                                            $("table").append('<button id="guardarPreguntas" class="btn btn-success btn-sm">boton de guradar</button>'); //ocupar javascript para guardar los datos
+                                            $("table").append('<button id="guardarPreguntas" class="btn btn-success btn-sm">Guradar</button>'); //ocupar javascript para guardar los datos
 
                                             //$("tbody").empty(); //estoy mostrando el contenido y borrandolo al mismo tiempo.
                                             
@@ -209,22 +208,18 @@
                                         failure: function(err) { //error
                                             console.log(err);
                                         }
-                                    }) 
+                                    })
                                 });
-                                function funcion1(result){    
+                                function funcion1(result){
                                     var object1 = {};
-                                    
                                     for (var i = 0; i < result.length ; i++) {
                                         if (result[i].Activado == true) {
-  
                                             object1["respuesta"+i] = $('#pregunta'+i).val();
-                                            object1["id_pregunta_clasica"+i] = result[i].id_pregunta_clasica; 
-                                            
+                                            object1["id_pregunta_clasica"+i] = result[i].id_pregunta_clasica;
                                         }
                                     }
-
                                     return object1;
-                               }
+                                }
 
                             </script>
                         </div>

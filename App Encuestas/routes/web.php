@@ -67,6 +67,5 @@ Route::get('/simulacion/encuestas/respuestas/guardar', ['as' => 'simulacion.guar
 
 Route::post('/simulacion/encuestas/Mostrar', ['as' => 'simulacion.show', 'uses' => 'HomeController@show']);
 
-
 Route::post('insertarData','HomeController@insertarData');
 //-------------------------------------------------------------------------------------------------------------------------

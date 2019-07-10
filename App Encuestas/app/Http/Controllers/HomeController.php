@@ -51,10 +51,10 @@ class HomeController extends Controller
         //Log::info($request);
         $requestArray = $request->toArray();
         Log::info($requestArray);
+        
+        for ($i=1 ; $i <= (count($requestArray)/2) ; $i++) { //tiene que recorrer 6 veces
 
-        for ($i=0 ; $i < (count($requestArray)/2) ; $i++) {
-
-            //if($requestArray[$i] != NULL){
+            //if( != NULL){
                 $stringI = "respuesta".(string)$i;
                 $preguntaC = "id_pregunta_clasica".(string)$i;
                 //Log::info(count($requestArray));
@@ -67,7 +67,7 @@ class HomeController extends Controller
                 $newRespuestaC->id_pregunta_clasica = $requestArray[$preguntaC]; //clave foranea
                 $newRespuestaC->save();
             //}
-        }    
+        }
         //return response()->json($newRespuestaC); // el return se envia a "result" de la vista
         return "OKOKO";
         

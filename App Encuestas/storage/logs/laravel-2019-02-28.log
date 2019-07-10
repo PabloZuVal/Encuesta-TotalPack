@@ -1,18 +1,18 @@
-[2019-02-28 12:28:28] local.INFO: array (
-  'respuesta0' => 'esto es una pregunta',
+[2019-02-28 21:08:46] local.INFO: array (
+  'respuesta0' => 'esto es una respuesta a una pregunta',
   'id_pregunta_clasica0' => '1',
-  'respuesta1' => 'esto es una pregunta',
+  'respuesta1' => 'esto es una respuesta a una pregunta',
   'id_pregunta_clasica1' => '2',
-  'respuesta2' => 'esto es una pregunta',
+  'respuesta2' => 'esto es una respuesta a una pregunta',
   'id_pregunta_clasica2' => '3',
-  'respuesta17' => 'esto es una pregunta',
+  'respuesta17' => 'esto es una respuesta a una pregunta',
   'id_pregunta_clasica17' => '20',
-  'respuesta18' => 'esto es una pregunta',
+  'respuesta18' => 'esto es una respuesta a una pregunta',
   'id_pregunta_clasica18' => '21',
-  'respuesta20' => 'esto es una pregunta',
+  'respuesta20' => 'esto es una respuesta a una pregunta',
   'id_pregunta_clasica20' => '23',
 )  
-[2019-02-28 12:28:28] local.ERROR: Undefined index: respuesta3 {"userId":1,"email":"usuario@totalpack.cl","exception":"[object] (ErrorException(code: 0): Undefined index: respuesta3 at C:\\xampp\\htdocs\\Encuesta-TotalPack\\App Encuestas\\app\\Http\\Controllers\\HomeController.php:66)
+[2019-02-28 21:08:46] local.ERROR: Undefined index: respuesta3 {"userId":1,"email":"usuario@totalpack.cl","exception":"[object] (ErrorException(code: 0): Undefined index: respuesta3 at C:\\xampp\\htdocs\\Encuesta-TotalPack\\App Encuestas\\app\\Http\\Controllers\\HomeController.php:66)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\Encuesta-TotalPack\\App Encuestas\\app\\Http\\Controllers\\HomeController.php(66): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined index...', 'C:\\\\xampp\\\\htdocs...', 66, Array)
 #1 [internal function]: App\\Http\\Controllers\\HomeController->guardarrespuestas(Object(Illuminate\\Http\\Request))
